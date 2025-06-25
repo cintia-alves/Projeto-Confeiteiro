@@ -1,0 +1,21 @@
+.informacoes-loja {
+margin-top: 16px;
+padding: 0 24px;
+display: flex;
+flex-direction: column;
+gap: 16px;
+color: #000;
+font-size: 15px;
+font-weight: 500;
+}
+
+.info-linha {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.icone {
+font-size: 20px;
+color: #000;
+}
