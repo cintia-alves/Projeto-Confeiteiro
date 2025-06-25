@@ -4,6 +4,9 @@ import FotoPerfil from './FotoPerfil/FotoPerfil';
 import NomeLoja from './NomeLoja/NomeLoja';
 import DescricaoLoja from './DescricaoLoja/DescricaoLoja';
 import InformacoesLoja from './InformacoesLoja/InformacoesLoja';
+import BotaoWhats from './BotaoWhats/BotaoWhats';
+import BotaoInstagram from './BotaoInstagram/BotaoInstagram';
+import BotaoLinkPerfil from './BotaoLinkPerfil/BotaoLinkPerfil';
 
 export default function Perfil({ isEditando }) {
 return (
@@ -13,6 +16,9 @@ return (
 <NomeLoja />
 <DescricaoLoja />
 <InformacoesLoja />
+<BotaoWhats />
+<BotaoInstagram />
+<BotaoLinkPerfil />
 </div>
 );
 }

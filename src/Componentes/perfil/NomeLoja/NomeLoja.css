@@ -1,6 +1,7 @@
 .nome-loja h2 {
 font-size: 20px;
 font-weight: 700;
-letter-spacing: 0.10x;
+letter-spacing: 0.10px;
 color: #2b2b2b;
+text-align: center; /* centraliza o texto */
 }

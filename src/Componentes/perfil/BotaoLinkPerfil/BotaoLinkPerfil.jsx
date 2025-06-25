@@ -1,0 +1,11 @@
+import './BotaoLinkPerfil.css';
+import { FaLink } from 'react-icons/fa';
+
+export default function BotaoLinkPerfil() {
+  return (
+    <button className="botao-link-perfil">
+      <FaLink className="icone-link" />
+      Link do Perfil
+    </button>
+  );
+}
