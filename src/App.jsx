@@ -1,6 +1,6 @@
 import './App.css';
-import Perfil from './Componentes/BaseTela/Perfil';
-import Cardapio from './Componentes/BaseTela/Cardapio';
+import Perfil from './Componentes/perfil/Perfil';
+import Cardapio from './Componentes/Cardapio/Cardapio';
 import BotaoEditar from './Componentes/BotaoEditar/BotaoEditar';
 import BotaoSair from './Componentes/BotaoSair/BotaoSair';
 
