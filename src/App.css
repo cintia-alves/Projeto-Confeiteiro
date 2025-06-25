@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #d9d9d9;
+  overflow-x: hidden;
+}
+
+.tela {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 100px);
+  padding: 0 30px;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
