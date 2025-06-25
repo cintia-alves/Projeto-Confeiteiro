@@ -1,0 +1,29 @@
+1- Baixa o GitHub desktop e faz o login
+
+2- Clica no repositório do Projeto-Confeiteiro
+
+3- Clica lá embaixo em clonar repositório e escolhe uma pasta pro projeto e salva
+
+4- abre o prompt de comando e coloca "cd" da espaço e coloca o caminho pra pasta escolhida(pode ser o link da pasta tbm tipo "C:\Users\Cíntia Alves\Desktop\Projeto final\Projeto-Confeiteiro\src"
+
+5- depois de esta dentro da pasta pelo prompt de comando, vc coloca "npm install"
+
+6- vai para a pasta mesmo e coloca pra abrir com o vs code e pra ver como ta ficando faz aquele processo la de "npm run dev" que vcs já sabem(ate mandei no whatsapp o vídeo de como faz isso la antes da prova)
+
+7- Criem pastas para os componentes do site, dentro da pasta "componentes", vcs criem uma pasta com o nome do que vao criar, ex:
+
+Componentes
+|__BotaoEditar
+   |__BotaoEditar.jsx
+   |__BotaoEditar.css
+
+pq assim fica bem organizado!
+
+8- vai para o GitHub desktop novamente e la vai aparecer so as pastas ou coisas que foram alteradas, ent vcs colocam o nome do comit, que vai aparecer na parte do lado esquedo, da um nome, exemplo, "fiz o botão tal" e coloca no botão azul de baixo.
+
+9- depois que carregar, coloca nesse outro botão de push, que vai esta em azul destacado
+
+10 - olha na parte de cima do gihthub desktop e clica em "fetch origin" que ele vai atualizar o projeto 
+
+* Toda vez que atualizar dê esse comando dentro da pasta: npm install
+
