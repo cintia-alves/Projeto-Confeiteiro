@@ -1,17 +1,19 @@
 import './App.css';
+import {useState} from 'react';
 import Perfil from './Componentes/perfil/Perfil';
 import Cardapio from './Componentes/Cardapio/Cardapio';
 import BotaoEditar from './Componentes/BotaoEditar/BotaoEditar';
 import BotaoSair from './Componentes/BotaoSair/BotaoSair';
 
 function App() {
-return (
+  const [isEditando, setIsEditando] = useState(false);
+  return (
   <>
    <div className="tela">
-    <BotaoEditar />
+    <BotaoEditar onClick={() => setIsEditando(!isEditando)} />
     <BotaoSair />
     <div className="layout">
-      <Perfil />
+      <Perfil isEditando={isEditando} />
       <Cardapio />
     </div>
     </div>

@@ -1,31 +1,54 @@
-.imagem-capa-wrapper {
-width: 100%;
-height: 180px;
-border-top-left-radius: 14px;
-border-top-right-radius: 14px;
-overflow: hidden;
-background-color: #f0f0f0;
-display: flex;
-justify-content: center;
-align-items: center;
+.capa-wrapper {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
 }
 
-.imagem-capa {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
+.capa-fundo {
+  width: 100%;
+  height: 100%;
+  background-color: #aaa; /* fundo cinza padrão */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
 }
 
-.input-label {
-display: flex;
-flex-direction: column;
-align-items: center;
-font-size: 14px;
-cursor: pointer;
-color: #666;
+.capa-fundo.com-imagem {
+  background-color: transparent;
 }
 
-.input-label input {
-display: none;
+.texto-editar {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.botoes-capa {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+}
+
+.botoes-capa button {
+  background-color: #2e2e2e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
 }
