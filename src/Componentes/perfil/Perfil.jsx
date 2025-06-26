@@ -12,7 +12,7 @@ export default function Perfil({ isEditando }) {
 return (
 <div className="perfil">
 <CapaImagem isEditando={isEditando} />
-<FotoPerfil />
+<FotoPerfil isEditando={isEditando} />
 <NomeLoja />
 <DescricaoLoja />
 <InformacoesLoja />
