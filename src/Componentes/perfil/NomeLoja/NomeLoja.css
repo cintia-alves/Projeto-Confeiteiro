@@ -5,3 +5,14 @@ letter-spacing: 0.10px;
 color: #2b2b2b;
 text-align: center; /* centraliza o texto */
 }
+
+.input-nome {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b2b2b;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  outline: none;
+}

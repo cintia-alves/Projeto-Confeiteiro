@@ -9,13 +9,25 @@ font-size: 15px;
 font-weight: 500;
 }
 
+
 .info-linha {
 display: flex;
 align-items: center;
 gap: 10px;
 }
 
+
 .icone {
 font-size: 20px;
 color: #000;
+}
+.info-input {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
 }
