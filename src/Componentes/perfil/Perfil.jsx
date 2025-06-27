@@ -16,9 +16,15 @@ return (
 <NomeLoja isEditando={isEditando} />
 <DescricaoLoja isEditando={isEditando} />
 <InformacoesLoja isEditando={isEditando} />
-<BotaoWhats />
-<BotaoInstagram />
-<BotaoLinkPerfil />
+<div className='caixa-botoes'>
+  <BotaoWhats />
+  <BotaoInstagram />
+  <BotaoLinkPerfil />
+  <div className='caixa-botoes-menores'>
+    <button className='botao-pequeno botao-cancelar'>Cancelar</button>
+    <button className='botao-pequeno botao-salvar'>Salvar</button>
+  </div>
+</div>
 </div>
 );
 }
