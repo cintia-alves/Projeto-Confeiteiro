@@ -6,6 +6,22 @@ font-size: 14px;
 line-height: 1.4;
 }
 
+
 .descricao-loja p {
 margin: 0;
+}
+.descricao-textarea {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #444;
+  background-color: transparent;
+  resize: none;
+  height: 80px;
+  line-height: 1.4;
+  overflow: hidden;
 }

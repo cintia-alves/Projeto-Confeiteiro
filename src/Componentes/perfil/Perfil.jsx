@@ -13,9 +13,9 @@ return (
 <div className="perfil">
 <CapaImagem isEditando={isEditando} />
 <FotoPerfil isEditando={isEditando} />
-<NomeLoja />
-<DescricaoLoja />
-<InformacoesLoja />
+<NomeLoja isEditando={isEditando} />
+<DescricaoLoja isEditando={isEditando} />
+<InformacoesLoja isEditando={isEditando} />
 <div className='caixa-botoes'>
   <BotaoWhats />
   <BotaoInstagram />
