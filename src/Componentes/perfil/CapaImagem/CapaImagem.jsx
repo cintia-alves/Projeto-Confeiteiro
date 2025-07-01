@@ -2,7 +2,7 @@ import './CapaImagem.css';
 import { useState, useRef } from 'react';
 
 export default function CapaImagem({ isEditando }) {
-  const [imagem, setImagem] = useState(null);
+  const [imagem, setImagem] = useState(null); 
   const [mostrarBotoes, setMostrarBotoes] = useState(false);
   const inputRef = useRef();
 
