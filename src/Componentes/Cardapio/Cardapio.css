@@ -14,8 +14,8 @@
 .conteudo-scrollavel {
   flex: 1;
   overflow-y: auto;
-  overflow-x: hidden; /* impede rolagem horizontal */
-  padding-bottom: 90px; /* espaço para o botão fixo não cobrir os cards */
+  overflow-x: hidden; 
+  padding-bottom: 90px; 
 }
 
 .botao-adicionar-fixo {
