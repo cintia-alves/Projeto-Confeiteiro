@@ -6,6 +6,16 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
   const [descricao, setDescricao] = useState('');
   const [preco, setPreco] = useState('');
 
+  function handlePrecoChange(e) {
+    const valor = e.target.value;
+
+    const apenasNumerosEVirgula = /^[0-9]*[,]?[0-9]{0,2}$/;
+
+    if (apenasNumerosEVirgula.test(valor) || valor === '') {
+      setPreco(valor);
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -52,12 +62,12 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="preco">Preço (somente números)</label>
+            <label htmlFor="preco">Preço (ex: 12,50)</label>
             <input
               type="text"
               id="preco"
               value={preco}
-              onChange={(e) => setPreco(e.target.value)}
+              onChange={handlePrecoChange}
               placeholder="0,00"
               required
             />

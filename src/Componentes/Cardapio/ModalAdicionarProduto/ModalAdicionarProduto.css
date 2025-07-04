@@ -69,14 +69,15 @@
 }
 
 .modal-actions button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 form {
   width: 100%;
 }
 
-input, textarea {
+input,
+textarea {
   background-color: #CCC;
   color: #111;
 }
