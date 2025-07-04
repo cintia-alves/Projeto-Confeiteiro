@@ -1,3 +1,16 @@
+.div-botao-whats {
+  position: relative;
+}
+
+.div-botao-whats-disabled {
+  position: relative;
+}
+
+.div-botao-whats-disabled a {
+  pointer-events: none;
+  cursor: none;
+}
+
 .botao-whats {
   display: flex;
   align-items: center;
@@ -14,4 +27,30 @@
 
 .icone-whats {
   font-size: 20px;
+}
+
+.botao-whats-acoes {
+  position: absolute;
+  display: flex;
+  right: -2rem;
+  top: -4px;
+  gap: 4px;
+}
+
+.botao-whats-acoes button {
+  background-color: #2e2e2e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.botao-desativado {
+  background-color: #BBB;
+  cursor: not-allowed;
 }

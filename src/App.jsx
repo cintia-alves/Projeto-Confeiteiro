@@ -13,7 +13,7 @@ function App() {
     <BotaoEditar onClick={() => setIsEditando(!isEditando)} />
     <BotaoSair />
     <div className="layout">
-      <Perfil isEditando={isEditando} />
+      <Perfil isEditando={isEditando} setIsEditando={setIsEditando} />
       <Cardapio />
     </div>
     </div>
