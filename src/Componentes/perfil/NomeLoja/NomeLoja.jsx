@@ -1,20 +1,18 @@
 import './NomeLoja.css';
-import { useState } from 'react';
 
-export default function NomeLoja({ isEditando }) {
-  const [nome, setNome] = useState('Nome da Loja');
-
+export default function NomeLoja({ isEditando, value, onChange }) {
   return (
     <div className="nome-loja">
       {isEditando ? (
         <input
           type="text"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          value={value}
+          onChange={onChange}
+          name="nome"
           className="input-nome"
         />
       ) : (
-        <h2>{nome}</h2>
+        <h2>{value}</h2>
       )}
     </div>
   );

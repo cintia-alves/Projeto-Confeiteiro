@@ -1,12 +1,7 @@
 import './InformacoesLoja.css';
 import { LuMapPin, LuCreditCard, LuClock3 } from 'react-icons/lu';
-import { useState } from 'react';
 
-export default function InformacoesLoja({ isEditando }) {
-  const [endereco, setEndereco] = useState('Endereço');
-  const [pagamento, setPagamento] = useState('Formas de Pagamento');
-  const [horario, setHorario] = useState('Horário de Funcionamento');
-
+export default function InformacoesLoja({ isEditando, data, onChange }) {
   return (
     <div className="informacoes-loja">
       <div className="info-linha">
@@ -15,11 +10,12 @@ export default function InformacoesLoja({ isEditando }) {
           <input
             type="text"
             className="info-input"
-            value={endereco}
-            onChange={(e) => setEndereco(e.target.value)}
+            value={data.endereco}
+            onChange={onChange}
+            name="endereco"
           />
         ) : (
-          <span>{endereco}</span>
+          <span>{data.endereco}</span>
         )}
       </div>
       <div className="info-linha">
@@ -28,11 +24,12 @@ export default function InformacoesLoja({ isEditando }) {
           <input
             type="text"
             className="info-input"
-            value={pagamento}
-            onChange={(e) => setPagamento(e.target.value)}
+            value={data.pagamento}
+            onChange={onChange}
+            name="pagamento"
           />
         ) : (
-          <span>{pagamento}</span>
+          <span>{data.pagamento}</span>
         )}
       </div>
       <div className="info-linha">
@@ -41,11 +38,12 @@ export default function InformacoesLoja({ isEditando }) {
           <input
             type="text"
             className="info-input"
-            value={horario}
-            onChange={(e) => setHorario(e.target.value)}
+            value={data.horario}
+            onChange={onChange}
+            name="horario"
           />
         ) : (
-          <span>{horario}</span>
+          <span>{data.horario}</span>
         )}
       </div>
     </div>
