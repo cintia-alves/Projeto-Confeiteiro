@@ -52,7 +52,7 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="preco">Preço (Digite somente números)</label>
+            <label htmlFor="preco">Preço (somente números)</label>
             <input
               type="text"
               id="preco"
