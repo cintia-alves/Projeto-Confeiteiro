@@ -1,11 +1,14 @@
 import './AreaDeCards.css';
 import CardProduto from '../CardProduto/CardProduto';
 
-export default function AreaDeCards() {
+export default function AreaDeCards({ produtos }) {
   return (
     <div className="area-cards">
-      <CardProduto />
-      {/* futuros <CardProduto /> podem ser duplicados aqui */}
+      {produtos.map((doce, index) => {
+        return (
+          <CardProduto key={index} produto={doce} />
+        )
+      })}
     </div>
   );
 }
