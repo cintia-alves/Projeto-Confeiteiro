@@ -2,7 +2,6 @@ import './Cardapio.css';
 import AreaCardapio from './AreaCardapio/AreaCardapio';
 import ModalAdicionarProduto from './ModalAdicionarProduto/ModalAdicionarProduto';
 import { useState } from 'react';
-import { FaPlus } from 'react-icons/fa';
 
 const produtosIniciais = [
   {
@@ -39,7 +38,6 @@ const produtosIniciais = [
 
 export default function Cardapio() {
   const [produtos, setProdutos] = useState(produtosIniciais);
-
   const [modalAberto, setModalAberto] = useState(false);
 
   const handleAdicionarProduto = (novoProduto) => {
@@ -49,10 +47,12 @@ export default function Cardapio() {
 
   return (
     <div className="cardapio">
-      <AreaCardapio produtos={produtos} />
+      <div className="conteudo-scrollavel">
+        <AreaCardapio produtos={produtos} />
+      </div>
 
-      <button className="botao-flutuante" onClick={() => setModalAberto(true)}>
-        +
+      <button className="botao-adicionar-fixo" onClick={() => setModalAberto(true)}>
+        Adicionar produto
       </button>
 
       {modalAberto && (
