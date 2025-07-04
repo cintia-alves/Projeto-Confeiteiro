@@ -2,28 +2,30 @@ import { useState } from 'react';
 import './ModalAdicionarProduto.css';
 
 export default function ModalAdicionarProduto({ onClose, onSave }) {
-  const [novoProduto, setNovoProduto] = useState({
-    nome: '',
-    descricao: '',
-    preco: ''
-  });
+  const [nome, setNome] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [preco, setPreco] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNovoProduto(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    const produtoFinal = {
-        ...novoProduto,
-        preco: `R$ ${novoProduto.preco}`
+
+    const precoNumerico = parseFloat(preco.replace(',', '.'));
+
+    if (isNaN(precoNumerico)) {
+      alert('Digite um valor de preço válido.');
+      return;
     }
-    onSave(produtoFinal);
-  };
+
+    const precoFormatado = `R$ ${precoNumerico.toFixed(2).replace('.', ',')}`;
+
+    const novoProduto = {
+      nome,
+      descricao,
+      preco: precoFormatado
+    };
+
+    onSave(novoProduto);
+  }
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -35,9 +37,8 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
             <input
               type="text"
               id="nome"
-              name="nome"
-              value={novoProduto.nome}
-              onChange={handleChange}
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
               required
             />
           </div>
@@ -45,27 +46,29 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
             <label htmlFor="descricao">Descrição</label>
             <textarea
               id="descricao"
-              name="descricao"
-              value={novoProduto.descricao}
-              onChange={handleChange}
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="preco">Preço (ex: 10,00)</label>
+            <label htmlFor="preco">Preço (Digite somente números)</label>
             <input
               type="text"
               id="preco"
-              name="preco"
-              value={novoProduto.preco}
-              onChange={handleChange}
-              placeholder="10,00"
+              value={preco}
+              onChange={(e) => setPreco(e.target.value)}
+              placeholder="0,00"
               required
             />
           </div>
           <div className="modal-actions">
-            <button type="button" className="btn-cancelar" onClick={onClose}>Cancelar</button>
-            <button type="submit" className="btn-salvar">Salvar</button>
+            <button type="button" className="btn-cancelar" onClick={onClose}>
+              Cancelar
+            </button>
+            <button type="submit" className="btn-salvar">
+              Salvar
+            </button>
           </div>
         </form>
       </div>
