@@ -1,18 +1,7 @@
 import './CardProduto.css';
 import { FaPen } from 'react-icons/fa';
-import Cardapio from '../Cardapio';
 
-// import { useState,useEffect } from 'react';
-
-
-export default function CardProduto({ produto, setModalAberto}) {
-  // const [produtoEditando, setProdutoEditando] = useState(null);
-
-  function EditCard(params) {
-    setModalAberto(true);
-  }
-
-export default function CardProduto({ produto }) {
+export default function CardProduto({ produto, setModalAberto }) {
 
   function cortarTexto(texto, maxCaracteres) {
     if(texto.length >= maxCaracteres) {
@@ -21,10 +10,14 @@ export default function CardProduto({ produto }) {
     return texto;
   }
 
+  function editCard(params) {
+    setModalAberto(true);
+  }
+
   return (
     <div className="card-produto">
       <div className="imagem-produto" style={{ backgroundImage: produto.foto ? `url(${produto.foto})` : 'none' }}>
-        <div className="card-edit-produto" onClick={EditCard}>
+        <div className="card-edit-produto" onClick={editCard}>
           <FaPen className="icone-editar" />
         </div>
       </div>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];
 
-export default function AreaCardapio({ produtos }) {
+export default function AreaCardapio({ produtos, setModalAberto }) {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(categorias[0]);
 
   const produtosFiltrados = produtos.filter(
@@ -27,7 +27,7 @@ export default function AreaCardapio({ produtos }) {
           ))}
         </div>
       </div>
-      <AreaDeCards produtos={produtosFiltrados} />
+      <AreaDeCards produtos={produtosFiltrados} setModalAberto={setModalAberto} />
     </div>
   );
 }
