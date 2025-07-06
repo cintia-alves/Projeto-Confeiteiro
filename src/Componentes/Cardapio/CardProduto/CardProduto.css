@@ -66,6 +66,7 @@
 .icone-remover {
   position: absolute;
   top: 8px;
+  right: 36px; 
   font-size: 14px;
   color: #333;
   background: #fff;
