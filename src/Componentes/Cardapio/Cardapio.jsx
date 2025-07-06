@@ -5,34 +5,58 @@ import { useState } from 'react';
 
 const produtosIniciais = [
   {
+    nome: "Bolo de Pote (Ninho c/ Morango)",
+    descricao: "Massa fofinha, recheio cremoso e morangos frescos.",
+    preco: "R$ 15,00",
+    categoria: "Bolos"
+  },
+  {
+    nome: "Fatia de Bolo Red Velvet",
+    descricao: "Aveludado, com recheio de cream cheese.",
+    preco: "R$ 18,00",
+    categoria: "Bolos"
+  },
+  {
+    nome: "Pote da Felicidade (Brownie)",
+    descricao: "Pedaços de brownie, mousse de chocolate e creme de avelã.",
+    preco: "R$ 22,00",
+    categoria: "Pote da Felicidade"
+  },
+  {
+    nome: "Pote da Felicidade (Uva)",
+    descricao: "Creme de Ninho, uvas verdes sem semente e ganache.",
+    preco: "R$ 20,00",
+    categoria: "Pote da Felicidade"
+  },
+  {
+    nome: "Brigadeiro Gourmet de Pistache",
+    descricao: "Massa cremosa de pistache, finalizado com granulado de pistache.",
+    preco: "R$ 6,00",
+    categoria: "Brigadeiros"
+  },
+  {
+    nome: "Brigadeiro de Churros",
+    descricao: "Recheado com doce de leite e passado no açúcar com canela.",
+    preco: "R$ 5,50",
+    categoria: "Brigadeiros"
+  },
+  {
     nome: "Brigadeiro Tradicional",
-    descricao: "Clássico de chocolate com granulado.",
-    preco: "R$ 4,50"
+    descricao: "Clássico de chocolate com granulado macio.",
+    preco: "R$ 4,50",
+    categoria: "Brigadeiros"
   },
   {
-    nome: "Fatia de Bolo de Cenoura",
-    descricao: "Com cobertura cremosa de chocolate.",
-    preco: "R$ 12,00"
+    nome: "Ovo de Colher (Kinder Bueno)",
+    descricao: "Casca de chocolate ao leite, recheio cremoso e pedaços de Kinder.",
+    preco: "R$ 85,00",
+    categoria: "Páscoa"
   },
   {
-    nome: "Pudim de Leite (fatia)",
-    descricao: "Lisinho e com calda de caramelo.",
-    preco: "R$ 10,00"
-  },
-  {
-    nome: "Torta de Limão (fatia)",
-    descricao: "Massa crocante e merengue maçaricado.",
-    preco: "R$ 14,50"
-  },
-  {
-    nome: "Beijinho de Coco",
-    descricao: "Docinho de coco com um cravo no topo.",
-    preco: "R$ 4,00"
-  },
-  {
-    nome: "Mousse de Maracujá",
-    descricao: "Copo individual, azedinho e doce.",
-    preco: "R$ 9,00"
+    nome: "Mini Ovo Trufado",
+    descricao: "Casca de chocolate meio amargo com recheio trufado.",
+    preco: "R$ 35,00",
+    categoria: "Páscoa"
   }
 ];
 
