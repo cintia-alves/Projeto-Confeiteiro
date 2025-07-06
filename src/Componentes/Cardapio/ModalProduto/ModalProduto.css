@@ -51,11 +51,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 280px;
-  padding-top: 1rem;
-  width: 100%;
 }
-
 
 .foto-titulo {
   font-weight: bold;
@@ -65,35 +61,34 @@ form {
 
 .foto-preview {
   width: 200px;
-  height: 220px;
-  background-color: #ccc;
-  background-size: contain;
+  height: 200px;
+  background-color: #f0f0f0;
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  border: 2px dashed #ccc;
   border-radius: 12px;
-  margin-bottom: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 1rem;
 }
-
-
 
 .botoes-foto-modal {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  margin-top: 0.5rem;
-  align-self: center;
 }
 
 .btn-foto {
-  padding: 6px 12px;
-  font-size: 12px;
+  padding: 8px 14px;
+  font-size: 13px;
   border: none;
   border-radius: 8px;
   background-color: #888;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-foto:hover {
+  background-color: #666;
 }
 
 .form-group {
@@ -109,13 +104,26 @@ form {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: #ccc;
+  background-color: #f8f8f8;
   color: #111;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.2em;
 }
 
 .form-group textarea {
@@ -125,22 +133,29 @@ form {
 
 .modal-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
 }
 
 .modal-actions button {
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: bold;
   font-size: 14px;
-  background-color: #333;
-  color: white;
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
-.modal-actions button:hover {
-  opacity: 0.8;
+.btn-cancelar {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn-salvar {
+  background-color: #d13e8b;
+  color: white;
 }

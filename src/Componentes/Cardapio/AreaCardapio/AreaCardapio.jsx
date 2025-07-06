@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];
 
-export default function AreaCardapio({ produtos, setModalAberto }) {
+export default function AreaCardapio({ produtos, onEditar }) {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(categorias[0]);
 
   const produtosFiltrados = produtos.filter(
@@ -15,6 +15,7 @@ export default function AreaCardapio({ produtos, setModalAberto }) {
     <div className="area-cardapio">
       <h2 className="titulo-cardapio">Cardápio</h2>
       <div className="area-categorias">
+        <h3 className="titulo-secao-categorias">Categorias</h3>
         <div className="abas-categorias">
           {categorias.map((categoria) => (
             <button
@@ -27,7 +28,7 @@ export default function AreaCardapio({ produtos, setModalAberto }) {
           ))}
         </div>
       </div>
-      <AreaDeCards produtos={produtosFiltrados} setModalAberto={setModalAberto} />
+      <AreaDeCards produtos={produtosFiltrados} onEditar={onEditar} />
     </div>
   );
 }

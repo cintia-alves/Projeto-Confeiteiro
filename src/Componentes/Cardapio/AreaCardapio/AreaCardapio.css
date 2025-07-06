@@ -27,12 +27,11 @@
 
 .abas-categorias {
   display: flex;
-  overflow-x: auto;
+  overflow: visible;
   gap: 12px;
   padding-bottom: 4px;
   margin-bottom: 16px;
   scrollbar-width: none;
-  overflow: visible;
 }
 
 .aba-categoria {
