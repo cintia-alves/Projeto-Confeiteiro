@@ -12,6 +12,7 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
     if (arquivo) {
       const url = URL.createObjectURL(arquivo);
       setFoto(url);
+      
     }
   }
 

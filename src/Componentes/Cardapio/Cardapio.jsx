@@ -48,7 +48,8 @@ export default function Cardapio() {
   return (
     <div className="cardapio">
       <div className="conteudo-scrollavel">
-        <AreaCardapio produtos={produtos} />
+        <AreaCardapio produtos={produtos} 
+        setModalAberto={setModalAberto}/>
       </div>
 
       <button className="botao-adicionar-fixo" onClick={() => setModalAberto(true)}>
