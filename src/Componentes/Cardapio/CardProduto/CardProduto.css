@@ -62,3 +62,16 @@
   font-size: 14px;
   margin: 0;
 }
+
+.icone-remover {
+  position: absolute;
+  top: 8px;
+  right: 36px; 
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 1;
+}

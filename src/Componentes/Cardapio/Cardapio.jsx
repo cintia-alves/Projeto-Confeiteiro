@@ -89,10 +89,22 @@ export default function Cardapio() {
     handleFecharModal();
   };
 
+  // ✅ Função de remover produto
+  const handleRemoverProduto = (produtoRemover) => {
+    setProdutos(produtosAtuais =>
+      produtosAtuais.filter(p => p.id !== produtoRemover.id)
+    );
+  };
+
   return (
     <div className="cardapio">
       <div className="conteudo-scrollavel">
-        <AreaCardapio produtos={produtos} onEditar={handleAbrirModalEdicao} />
+        {}
+        <AreaCardapio
+          produtos={produtos}
+          onEditar={handleAbrirModalEdicao}
+          onRemover={handleRemoverProduto}
+        />
       </div>
 
       <button className="botao-adicionar-fixo" onClick={handleAbrirModalAdicao}>
