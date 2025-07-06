@@ -81,3 +81,8 @@ textarea {
   background-color: #CCC;
   color: #111;
 }
+
+.imagem-produto {
+  background-size: cover;
+  background-position: center;
+}

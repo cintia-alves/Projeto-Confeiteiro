@@ -1,11 +1,22 @@
 import { useState } from 'react';
 import './ModalAdicionarProduto.css';
+// import CardProduto from '../CardProduto/CardProduto';
 
 export default function ModalAdicionarProduto({ onClose, onSave }) {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [preco, setPreco] = useState('');
+  const [foto, setFoto] = useState('C:\\Users\\maria\\Downloads\\WhatsApp Image 2025-07-01 at 18.58.27.jpeg');
 
+  function trocarFoto(e) {
+    const arquivo = e.target.files[0];
+    if (arquivo) {
+        const url = URL.createObjectURL(arquivo);
+        setFoto(url);
+      }
+  }
+
+  
   function handlePrecoChange(e) {
     const valor = e.target.value;
 
@@ -31,7 +42,8 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
     const novoProduto = {
       nome,
       descricao,
-      preco: precoFormatado
+      preco: precoFormatado,
+      foto
     };
 
     onSave(novoProduto);
@@ -42,6 +54,19 @@ export default function ModalAdicionarProduto({ onClose, onSave }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Adicionar Novo Produto</h2>
         <form onSubmit={handleSubmit}>
+          <div
+        className={`foto-perfil ${foto ? 'com-foto' : ''}`}
+        style={{ backgroundImage: foto ? `url(${foto})` : 'none' }}
+      ></div>
+          <div className="form-group">
+            <label htmlFor="nome">Foto</label>
+            <input
+              type="file"
+              id="foto"
+              onChange={trocarFoto}
+              required
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="nome">Nome do Produto</label>
             <input
