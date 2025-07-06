@@ -1,3 +1,4 @@
+import { FaEdit } from 'react-icons/fa';
 import './CapaImagem.css';
 import { useState, useRef } from 'react';
 
@@ -34,16 +35,14 @@ export default function CapaImagem({ isEditando }) {
     <div className="capa-wrapper">
       <div
         className={`capa-fundo ${imagem ? 'com-imagem' : ''}`}
-        onClick={clicarNaArea}
         style={{ backgroundImage: imagem ? `url(${imagem})` : 'none' }}
       >
-        {!imagem && isEditando && (
-          <p className="texto-editar">clique aqui para editar</p>
+        {isEditando && (
+          <FaEdit onClick={clicarNaArea} className='edit-icon' size={16} />
         )}
 
         {isEditando && mostrarBotoes && (
           <div className="botoes-capa">
-            {imagem && <button>Mostrar foto</button>}
             <button onClick={abrirInput}>Carregar Foto</button>
             {imagem && <button onClick={removerImagem}>Remover foto</button>}
             <input
