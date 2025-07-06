@@ -12,6 +12,15 @@ export default function CardProduto({ produto, setModalAberto}) {
     setModalAberto(true);
   }
 
+export default function CardProduto({ produto }) {
+
+  function cortarTexto(texto, maxCaracteres) {
+    if(texto.length >= maxCaracteres) {
+      return texto.slice(0, maxCaracteres) + "...";
+    }
+    return texto;
+  }
+
   return (
     <div className="card-produto">
       <div className="imagem-produto" style={{ backgroundImage: produto.foto ? `url(${produto.foto})` : 'none' }}>
@@ -20,9 +29,9 @@ export default function CardProduto({ produto, setModalAberto}) {
         </div>
       </div>
       <div className="info-produto">
-        <h4 className="titulo-produto">{produto.nome}</h4>
+        <h4 className="titulo-produto">{cortarTexto(produto.nome)}</h4>
         <p className="descricao-produto">
-          {produto.descricao}
+          {cortarTexto(produto.descricao, 60)}
         </p>
         <p className="preco-produto">{produto.preco}</p>
       </div>

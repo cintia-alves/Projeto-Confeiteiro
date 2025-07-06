@@ -11,3 +11,49 @@
   margin: 0;
   padding-bottom: 16px;
 }
+
+.area-categorias {
+  width: 100%;
+  padding: 0 24px;
+}
+
+.titulo-secao-categorias {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.abas-categorias {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+  scrollbar-width: none;
+  overflow: visible;
+}
+
+.aba-categoria {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.aba-categoria:hover {
+  background-color: #efefef;
+}
+
+.aba-categoria.ativa {
+  background-color: #827ca2;
+  color: #ffffff;
+  border-color: #4c456f;
+}
