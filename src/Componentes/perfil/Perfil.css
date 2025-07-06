@@ -23,11 +23,9 @@ min-width: 315px;
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 16px;
 }
 
 .botao-pequeno {
-  padding-block: 4px;
   flex: 1;
 }
 

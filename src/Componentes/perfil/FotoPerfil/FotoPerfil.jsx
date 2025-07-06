@@ -43,7 +43,6 @@ export default function FotoPerfil({ isEditando }) {
 
         {isEditando && mostrarBotoes && (
           <div className="botoes-foto">
-            {foto && <button>Mostrar foto</button>}
             <button onClick={abrirInput}>Carregar Foto</button>
             {foto && <button onClick={removerFoto}>Remover foto</button>}
             <input
