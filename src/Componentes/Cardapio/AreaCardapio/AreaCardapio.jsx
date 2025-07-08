@@ -30,7 +30,7 @@ export default function AreaCardapio({ produtos, onEditar, onRemover }) {
         </div>
       </div>
 
-      {/* ✅ Agora repassa o onRemover também */}
+      {}
       <AreaDeCards
         produtos={produtosFiltrados}
         onEditar={onEditar}
