@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];
 
-export default function AreaCardapio({ produtos, onEditar }) {
+export default function AreaCardapio({ produtos, onEditar, onRemover }) {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(categorias[0]);
 
   const produtosFiltrados = produtos.filter(
@@ -14,6 +14,7 @@ export default function AreaCardapio({ produtos, onEditar }) {
   return (
     <div className="area-cardapio">
       <h2 className="titulo-cardapio">Cardápio</h2>
+
       <div className="area-categorias">
         <h3 className="titulo-secao-categorias">Categorias</h3>
         <div className="abas-categorias">
@@ -28,7 +29,13 @@ export default function AreaCardapio({ produtos, onEditar }) {
           ))}
         </div>
       </div>
-      <AreaDeCards produtos={produtosFiltrados} onEditar={onEditar} />
+
+      {/* ✅ Agora repassa o onRemover também */}
+      <AreaDeCards
+        produtos={produtosFiltrados}
+        onEditar={onEditar}
+        onRemover={onRemover}
+      />
     </div>
   );
 }
