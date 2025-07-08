@@ -1,5 +1,6 @@
 .card-produto {
-  width: 500px;
+  width: calc(50% - 8px); 
+  min-width: 280px;
   min-height: 160px;
   background-color: #4b4b4b;
   border-radius: 12px;
@@ -8,6 +9,7 @@
   position: relative;
   color: white;
 }
+
 
 .info-produto {
   display: flex;

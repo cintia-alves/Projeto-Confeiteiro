@@ -1,7 +1,6 @@
 .area-cards {
-  width: 100%;
-  padding: 16px 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 16px; 
+  justify-content: flex-start; 
 }
