@@ -3,6 +3,7 @@ import AreaCardapio from './AreaCardapio/AreaCardapio';
 import ModalProduto from './ModalProduto/ModalProduto';
 import { useState } from 'react';
 
+
 const produtosIniciais = [
   {
     id: 1,

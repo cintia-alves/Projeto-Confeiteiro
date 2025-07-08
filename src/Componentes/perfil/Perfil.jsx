@@ -1,5 +1,7 @@
 import './Perfil.css';
-import { useState, useEffect } from 'react'; // Importe o useEffect
+import { useState, useEffect } from 'react';
+import { db } from '../../firebase';
+import { ref, set, onValue } from 'firebase/database';
 import CapaImagem from './CapaImagem/CapaImagem';
 import FotoPerfil from './FotoPerfil/FotoPerfil';
 import NomeLoja from './NomeLoja/NomeLoja';
@@ -10,57 +12,80 @@ import BotaoInstagram from './BotaoInstagram/BotaoInstagram';
 import BotaoLinkPerfil from './BotaoLinkPerfil/BotaoLinkPerfil';
 
 export default function Perfil({ isEditando, setIsEditando }) {
-  const [perfilData, setPerfilData] = useState({
+  const [dadosPerfil, setDadosPerfil] = useState({
     nome: 'Nome da Loja',
     descricao: 'Escreva aqui a descrição da sua loja.\nPara que seus clientes conheçam melhor o seu trabalho e os produtos que você vende.',
     endereco: 'Endereço',
     pagamento: 'Formas de Pagamento',
     horario: 'Horário de Funcionamento',
+    urlCapa: '',
+    urlFotoPerfil: '',
   });
 
-  const [tempData, setTempData] = useState(perfilData);
+  const [dadosTemporarios, setDadosTemporarios] = useState(dadosPerfil);
+
+  useEffect(() => {
+    const referenciaPerfil = ref(db, 'perfil/dados');
+    const parar = onValue(referenciaPerfil, (instantaneo) => {
+      const dados = instantaneo.val();
+      if (dados) {
+        setDadosPerfil(dados);
+      }
+    });
+    return () => parar();
+  }, []);
 
   useEffect(() => {
     if (isEditando) {
-      setTempData(perfilData);
+      setDadosTemporarios(dadosPerfil);
     }
-  }, [isEditando, perfilData]);
+  }, [isEditando, dadosPerfil]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setTempData(prevData => ({
-      ...prevData,
+  const atualizarDadosTemporarios = (evento) => {
+    const { name, value } = evento.target;
+    setDadosTemporarios(dadosAnteriores => ({
+      ...dadosAnteriores,
       [name]: value,
     }));
   };
 
-  const handleCancel = () => {
+  const cancelarEdicao = () => {
     setIsEditando(false);
   };
 
-  const handleSave = () => {
-    setPerfilData(tempData);
+  const salvarEdicao = () => {
+    setDadosPerfil(dadosTemporarios);
+    set(ref(db, 'perfil/dados'), dadosTemporarios);
     setIsEditando(false);
   };
+
   
   return (
     <div className="perfil">
-      <CapaImagem isEditando={isEditando} />
-      <FotoPerfil isEditando={isEditando} />
-      <NomeLoja 
+      <CapaImagem 
         isEditando={isEditando} 
-        value={isEditando ? tempData.nome : perfilData.nome}
-        onChange={handleChange}
+        urlCapa={isEditando ? dadosTemporarios.urlCapa : dadosPerfil.urlCapa}
+        setDadosTemporarios={setDadosTemporarios}
       />
-      <DescricaoLoja 
+      <FotoPerfil 
         isEditando={isEditando} 
-        value={isEditando ? tempData.descricao : perfilData.descricao}
-        onChange={handleChange}
+        urlFoto={isEditando ? dadosTemporarios.urlFotoPerfil : dadosPerfil.urlFotoPerfil}
+        setDadosTemporarios={setDadosTemporarios}
       />
-      <InformacoesLoja 
+      <NomeLoja
         isEditando={isEditando}
-        data={isEditando ? tempData : perfilData}
-        onChange={handleChange}
+        value={isEditando ? dadosTemporarios.nome : dadosPerfil.nome}
+        onChange={atualizarDadosTemporarios}
+      />
+      <DescricaoLoja
+        isEditando={isEditando}
+        value={isEditando ? dadosTemporarios.descricao : dadosPerfil.descricao}
+        onChange={atualizarDadosTemporarios}
+      />
+      <InformacoesLoja
+        isEditando={isEditando}
+        data={isEditando ? dadosTemporarios : dadosPerfil}
+        onChange={atualizarDadosTemporarios}
       />
 
       <div className='caixa-botoes'>
@@ -69,8 +94,8 @@ export default function Perfil({ isEditando, setIsEditando }) {
         <BotaoLinkPerfil />
         {isEditando && (
           <div className='caixa-botoes-menores'>
-            <button className='botao-pequeno botao-cancelar' onClick={handleCancel}>Cancelar</button>
-            <button className='botao-pequeno botao-salvar' onClick={handleSave}>Salvar</button>
+            <button className='botao-pequeno botao-cancelar' onClick={cancelarEdicao}>Cancelar</button>
+            <button className='botao-pequeno botao-salvar' onClick={salvarEdicao}>Salvar</button>
           </div>
         )}
       </div>
