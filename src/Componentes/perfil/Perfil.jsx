@@ -62,11 +62,12 @@ export default function Perfil({ isEditando, setIsEditando }) {
   
   return (
     <div className="perfil">
-      <CapaImagem 
-        isEditando={isEditando} 
-        urlCapa={isEditando ? dadosTemporarios.urlCapa : dadosPerfil.urlCapa}
+      <CapaImagem
+        isEditando={isEditando}
+        urlImagem={isEditando ? dadosTemporarios.urlCapa : dadosPerfil.urlCapa}
         setDadosTemporarios={setDadosTemporarios}
       />
+
       <FotoPerfil 
         isEditando={isEditando} 
         urlFoto={isEditando ? dadosTemporarios.urlFotoPerfil : dadosPerfil.urlFotoPerfil}
