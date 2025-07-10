@@ -2,7 +2,7 @@ import './FotoPerfil.css';
 import { useState, useRef } from 'react';
 import axios from 'axios';
 
-export default function FotoPerfil({ isEditando, urlFoto, setDadosTemporarios }) {
+export default function FotoPerfil({ isEditando, urlFoto, setDadosTemporarios }) { //salvar fotos no cloudinary
   //const [foto, setFoto] = useState(null);
   const [mostrarBotoes, setMostrarBotoes] = useState(false);
   const [carregando, setCarregando] = useState(false);

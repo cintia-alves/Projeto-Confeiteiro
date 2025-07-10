@@ -20,6 +20,14 @@ export default function Perfil({ isEditando, setIsEditando }) {
     horario: 'Horário de Funcionamento',
     urlCapa: '',
     urlFotoPerfil: '',
+    botaoWhatsapp: {
+      link: '',
+      texto: 'WhatsApp'
+    },
+    botaoInstagram: {
+      link: '',
+      texto: 'Instagram'
+    }
   });
 
   const [dadosTemporarios, setDadosTemporarios] = useState(dadosPerfil);
@@ -90,7 +98,16 @@ export default function Perfil({ isEditando, setIsEditando }) {
       />
 
       <div className='caixa-botoes'>
-        <BotaoWhats isEditando={isEditando} />
+        <BotaoWhats
+          isEditando={isEditando}
+          botao={isEditando ? dadosTemporarios.botaoWhatsapp : dadosPerfil.botaoWhatsapp}
+          onChange={(novoBotao) =>
+            setDadosTemporarios((ant) => ({
+              ...ant,
+              botaoWhatsapp: novoBotao
+            }))
+          }
+        />
         <BotaoInstagram isEditando={isEditando} />
         <BotaoLinkPerfil />
         {isEditando && (
