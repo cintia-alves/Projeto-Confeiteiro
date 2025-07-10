@@ -3,11 +3,12 @@ import "./BotaoWhats.css";
 import { FaWhatsapp } from "react-icons/fa";
 import ModalEditarLink from "../ModalEditarLink/ModalEditarLink";
 
-export default function BotaoWhats({ isEditando }) {
+export default function BotaoWhats({ isEditando,botao, onChange }) {
   const [mostrarModal, setMostrarModal] = useState(false);
-  const [link, setLink] = useState("");
-  const [texto, setTexto] = useState("WhatsApp");
-
+  //const [link, setLink] = useState("");
+  //const [texto, setTexto] = useState("WhatsApp");
+  const link = botao?.link || "";
+  const texto = botao?.texto || "WhatsApp";
   return (
     <div className={`${link ? "div-botao-whats" : "div-botao-whats-disabled"}`}>
       <a href={link} target="_blank">
@@ -19,7 +20,7 @@ export default function BotaoWhats({ isEditando }) {
       {isEditando && (
         <div className="botao-whats-acoes">
           <button className="botao-acao" onClick={() => setMostrarModal(true)}>Editar</button>
-          <button className="botao-acao" onClick={() => setLink("")}>Excluir</button>
+          <button className="botao-acao" onClick={() => onChange({ link: "", texto })}>Excluir</button>
         </div>
       )}
 
@@ -30,8 +31,7 @@ export default function BotaoWhats({ isEditando }) {
           textoAtual={texto}
           onClose={() => setMostrarModal(false)}
           onSave={({ link, texto }) => {
-            setLink(link);
-            setTexto(texto);
+            onChange({ link, texto });
           }}
         />
       )}

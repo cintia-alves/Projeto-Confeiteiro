@@ -61,11 +61,11 @@ export default function Perfil({ isEditando, setIsEditando }) {
     setIsEditando(false);
   };
 
-  const salvarEdicao = () => {
-    setDadosPerfil(dadosTemporarios);
-    set(ref(db, 'perfil/dados'), dadosTemporarios);
-    setIsEditando(false);
-  };
+const salvarEdicao = () => {
+  setDadosPerfil(dadosTemporarios);
+  set(ref(db, 'perfil/dados'), dadosTemporarios);
+  setIsEditando(false);
+};
 
   
   return (
@@ -78,21 +78,21 @@ export default function Perfil({ isEditando, setIsEditando }) {
 
       <FotoPerfil 
         isEditando={isEditando} 
-        urlFoto={isEditando ? dadosTemporarios.urlFotoPerfil : dadosPerfil.urlFotoPerfil}
-        setDadosTemporarios={setDadosTemporarios}
+        urlFoto={isEditando ? dadosTemporarios.urlFotoPerfil : dadosPerfil.urlFotoPerfil} 
+        setDadosTemporarios={setDadosTemporarios}  
       />
       <NomeLoja
         isEditando={isEditando}
         value={isEditando ? dadosTemporarios.nome : dadosPerfil.nome}
-        onChange={atualizarDadosTemporarios}
+        onChange={atualizarDadosTemporarios} 
       />
       <DescricaoLoja
-        isEditando={isEditando}
-        value={isEditando ? dadosTemporarios.descricao : dadosPerfil.descricao}
+        isEditando={isEditando} 
+        value={isEditando ? dadosTemporarios.descricao :dadosPerfil.descricao}
         onChange={atualizarDadosTemporarios}
       />
       <InformacoesLoja
-        isEditando={isEditando}
+        isEditando= {isEditando}  
         data={isEditando ? dadosTemporarios : dadosPerfil}
         onChange={atualizarDadosTemporarios}
       />
@@ -108,7 +108,16 @@ export default function Perfil({ isEditando, setIsEditando }) {
             }))
           }
         />
-        <BotaoInstagram isEditando={isEditando} />
+        <BotaoInstagram 
+        isEditando={isEditando}
+        botao= {isEditando ? dadosTemporarios.botaoInstagram : dadosPerfil.botaoInstagram}
+        onChange={(novoBotao) =>
+          setDadosTemporarios((ant) => ({ 
+            ...ant,
+            botaoInstagram:novoBotao
+          })) 
+        }
+        />
         <BotaoLinkPerfil />
         {isEditando && (
           <div className='caixa-botoes-menores'>
