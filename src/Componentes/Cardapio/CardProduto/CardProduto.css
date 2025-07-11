@@ -2,7 +2,7 @@
   width: calc(50% - 8px); 
   min-width: 280px;
   min-height: 160px;
-  background-color: #4b4b4b;
+  background-image: linear-gradient(to right, #4c456f, #827ca2);
   border-radius: 12px;
   display: flex;
   overflow: hidden;
@@ -31,17 +31,29 @@
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
 }
-
-.icone-editar {
+.icones-superiores {
   position: absolute;
   top: 8px;
   right: 8px;
-  font-size: 14px;
-  color: #333;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.icone-editar {
+  position: static;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  color: #4c456f;
   background: #fff;
   border-radius: 50%;
-  padding: 4px;
+  padding: 0;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  transition: background 0.2s;
 }
 
 .titulo-produto {
@@ -66,14 +78,18 @@
 }
 
 .icone-remover {
-  position: absolute;
-  top: 8px;
-  right: 36px; 
-  font-size: 14px;
-  color: #333;
+  position: static;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  color: #4c456f;
   background: #fff;
   border-radius: 50%;
-  padding: 4px;
+  padding: 0;
   cursor: pointer;
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  transition: background 0.2s;
 }
