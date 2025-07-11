@@ -1,15 +1,17 @@
 .cardapio {
-  width: 100%;
+  flex: 3;
   background-color: white;
   border-radius: 14px;
   padding: 24px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 90vh;
+  height: 100%; 
+  box-sizing: border-box;
+  justify-content: space-between;
 }
+
 
 .conteudo-scrollavel {
   flex: 1;
@@ -19,11 +21,10 @@
 }
 
 .botao-adicionar-fixo {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #555;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 16px;
+  background-color: #4c456f;
   color: white;
   padding: 10px 24px;
   border: none;

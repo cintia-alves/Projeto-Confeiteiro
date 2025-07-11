@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './ModalProduto.css';
+import axios from 'axios';
 
 const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];
 
@@ -9,6 +10,7 @@ export default function ModalProduto({ onClose, onSave, produtoInicial = null })
   const [preco, setPreco] = useState('');
   const [foto, setFoto] = useState(null);
   const [categoria, setCategoria] = useState(categorias[0]);
+  const [carregando, setCarregando] = useState(false);
 
   useEffect(() => {
     if (produtoInicial) {
@@ -20,13 +22,29 @@ export default function ModalProduto({ onClose, onSave, produtoInicial = null })
       setCategoria(produtoInicial.categoria);
     }
   }, [produtoInicial]);
-
-  function trocarFoto(e) {
+  //mudei o trocarFoto pra add as fotos no cloudinary
+  async function trocarFoto(e) {
     const arquivo = e.target.files[0];
-    if (arquivo) {
-      const url = URL.createObjectURL(arquivo);
+    if (!arquivo) return;
+    setCarregando(true);
+    const formData = new FormData();
+    formData.append('file', arquivo);
+    formData.append('upload_preset', 'img-confeiteiro');
+    formData.append('folder', 'confeiteiro');
+
+    try {
+      const resposta = await axios.post(
+        'https://api.cloudinary.com/v1_1/dqmp5gzbg/image/upload',
+        formData
+      );
+      const url = resposta.data.secure_url;
       setFoto(url);
+    } catch (erro) {
+      alert('Erro ao enviar imagem');
+      console.error(erro);
     }
+
+    setCarregando(false);
   }
 
   function removerFoto() {
@@ -90,17 +108,17 @@ export default function ModalProduto({ onClose, onSave, produtoInicial = null })
               <p className="foto-titulo">Adicione uma foto</p>
               <div className="foto-preview" style={{ backgroundImage: foto ? `url(${foto})` : 'none' }}></div>
               <div className="botoes-foto-modal">
-                <button type="button" className="btn-foto" onClick={removerFoto}>Remover foto</button>
+                <button type="button" className="btn-foto" onClick={removerFoto} disabled={carregando}>Remover foto</button>
                 <label className="btn-foto">
-                  Carregar foto
-                  <input type="file" accept="image/*" onChange={trocarFoto} style={{ display: 'none' }} />
+                  {carregando ? "Enviando..." : "Carregar foto"}
+                  <input type="file" accept="image/*" onChange={trocarFoto} style={{ display: 'none' }} disabled={carregando}/>
                 </label>
               </div>
             </div>
           </div>
           <div className="modal-actions">
             <button type="button" className="btn-cancelar" onClick={onClose}>Cancelar</button>
-            <button type="submit" className="btn-salvar">Salvar</button>
+            <button type="submit" className="btn-salvar" disabled={carregando}>Salvar</button>
           </div>
         </form>
       </div>

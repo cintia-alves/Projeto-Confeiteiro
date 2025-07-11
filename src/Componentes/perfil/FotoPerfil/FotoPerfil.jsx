@@ -1,22 +1,53 @@
 import './FotoPerfil.css';
 import { useState, useRef } from 'react';
+import axios from 'axios';
 
-export default function FotoPerfil({ isEditando }) {
-  const [foto, setFoto] = useState(null);
+export default function FotoPerfil({ isEditando, urlFoto, setDadosTemporarios }) { //salvar fotos no cloudinary
+  //const [foto, setFoto] = useState(null);
   const [mostrarBotoes, setMostrarBotoes] = useState(false);
+  const [carregando, setCarregando] = useState(false);
   const inputRef = useRef();
 
-  function trocarFoto(e) {
-    const arquivo = e.target.files[0];
-    if (arquivo) {
-      const url = URL.createObjectURL(arquivo);
-      setFoto(url);
-      setMostrarBotoes(false);
-    }
+  async function trocarFoto(e) {
+  const arquivo = e.target.files[0];
+  if (!arquivo) return;
+
+  setCarregando(true);
+
+  const formData = new FormData();
+  formData.append('file', arquivo);
+  formData.append('upload_preset', 'img-confeiteiro');
+  formData.append('folder', 'confeiteiro');
+
+
+  try {
+    const resposta = await axios.post(
+      'https://api.cloudinary.com/v1_1/dqmp5gzbg/image/upload',
+      formData
+    );
+
+    const url = resposta.data.secure_url;
+
+    setDadosTemporarios(dadosAnteriores => ({
+      ...dadosAnteriores,
+      urlFotoPerfil: url
+    }));
+
+  } catch (erro) {
+    alert('Erro ao enviar imagem');
+    console.error(erro);
   }
 
+  setCarregando(false);
+  setMostrarBotoes(false);
+}
+
+
   function removerFoto() {
-    setFoto(null);
+    setDadosTemporarios(dadosAnteriores => ({
+      ...dadosAnteriores,
+      urlFotoPerfil: ''
+    }));
     setMostrarBotoes(false);
   }
 
@@ -33,18 +64,24 @@ export default function FotoPerfil({ isEditando }) {
   return (
     <div className="foto-perfil-wrapper">
       <div
-        className={`foto-perfil ${foto ? 'com-foto' : ''}`}
+        className={`foto-perfil ${urlFoto ? 'com-foto' : ''}`}
         onClick={clicarNaFoto}
-        style={{ backgroundImage: foto ? `url(${foto})` : 'none' }}
+        style={{ backgroundImage: urlFoto ? `url(${urlFoto})` : 'none'}}
       >
-        {!foto && isEditando && (
+        {!urlFoto && isEditando && (
           <span className="texto-editar">clique aqui para editar</span>
+        )}
+
+        {!isEditando && urlFoto && (
+          <img src={urlFoto} alt="Foto do perfil" className="img-perfil" />
         )}
 
         {isEditando && mostrarBotoes && (
           <div className="botoes-foto">
-            <button onClick={abrirInput}>Carregar Foto</button>
-            {foto && <button onClick={removerFoto}>Remover foto</button>}
+            <button onClick={abrirInput} disabled={carregando}>
+              {carregando ? "Enviando..." : "Carregar Foto"}
+            </button>
+            {urlFoto && <button onClick={removerFoto}>Remover foto</button>}
             <input
               ref={inputRef}
               type="file"

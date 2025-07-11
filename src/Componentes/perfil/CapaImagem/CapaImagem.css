@@ -9,6 +9,7 @@
 .capa-fundo {
   width: 100%;
   height: 100%;
+  cursor: pointer;
   background-color: #aaa; /* fundo cinza padrão */
   display: flex;
   justify-content: center;
@@ -17,6 +18,12 @@
   background-size: cover;
   background-position: center;
   position: relative;
+}
+.img-capa {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* 👈 Isso permite que o clique "passe por cima" da imagem */
 }
 
 .capa-fundo.com-imagem {

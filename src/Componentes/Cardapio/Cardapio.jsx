@@ -1,57 +1,38 @@
-import './Cardapio.css';
-import AreaCardapio from './AreaCardapio/AreaCardapio';
-import ModalProduto from './ModalProduto/ModalProduto';
-import { useState } from 'react';
+import "./Cardapio.css";
+import AreaCardapio from "./AreaCardapio/AreaCardapio";
+import ModalProduto from "./ModalProduto/ModalProduto";
+import { useState, useEffect } from "react";
+import { db } from "../../firebase";
+import { ref, set, onValue } from "firebase/database";
 
 const produtosIniciais = [
   {
     id: 1,
-    nome: "Bolo de Pote (Ninho c/ Morango)",
-    descricao: "Massa fofinha, recheio cremoso de Ninho e morangos frescos selecionados.",
-    preco: "R$ 15,00",
-    categoria: "Bolos"
+    nome: "Nome do produto ",
+    descricao: "Adicione aqui uma descrição do seu produto.",
+    preco: "R$ 00,00",
+    categoria: "Bolos",
   },
   {
     id: 2,
-    nome: "Fatia de Bolo Red Velvet",
-    descricao: "Uma fatia generosa do nosso bolo aveludado, com recheio de cream cheese.",
-    preco: "R$ 18,00",
-    categoria: "Bolos"
+    nome: "Nome do produto ",
+    descricao: "Adicione aqui uma descrição do seu produto.",
+    preco: "R$ 00,00",
+    categoria: "Pote da Felicidade",
   },
   {
     id: 3,
-    nome: "Pote da Felicidade (Brownie)",
-    descricao: "Pedaços de brownie, mousse de chocolate e creme de avelã.",
-    preco: "R$ 22,00",
-    categoria: "Pote da Felicidade"
+    nome: "Nome do produto ",
+    descricao: "Adicione aqui uma descrição do seu produto.",
+    preco: "R$ 00,00",
+    categoria: "Brigadeiros",
   },
   {
     id: 4,
-    nome: "Pote da Felicidade (Uva)",
-    descricao: "Creme de Ninho, uvas verdes sem semente e ganache de chocolate branco.",
-    preco: "R$ 20,00",
-    categoria: "Pote da Felicidade"
-  },
-  {
-    id: 5,
-    nome: "Brigadeiro Gourmet de Pistache",
-    descricao: "Massa cremosa de pistache, finalizado com granulado de pistache.",
-    preco: "R$ 6,00",
-    categoria: "Brigadeiros"
-  },
-  {
-    id: 6,
-    nome: "Brigadeiro Tradicional",
-    descricao: "O clássico que todo mundo ama, feito com chocolate de alta qualidade.",
-    preco: "R$ 4,50",
-    categoria: "Brigadeiros"
-  },
-  {
-    id: 7,
-    nome: "Ovo de Colher (Kinder Bueno)",
-    descricao: "Casca de chocolate ao leite, recheio cremoso e pedaços de Kinder.",
-    preco: "R$ 85,00",
-    categoria: "Páscoa"
+    nome: "Nome do produto ",
+    descricao: "Adicione aqui uma descrição do seu produto.",
+    preco: "R$ 00,00",
+    categoria: "Páscoa",
   },
 ];
 
@@ -74,26 +55,59 @@ export default function Cardapio() {
     setModalAberto(false);
     setProdutoParaEditar(null);
   };
+  //adiconei o firebase aqui
+  useEffect(() => {
+    const referencia = ref(db, "cardapio/produtos");
+    const unsubscribe = onValue(referencia, (snapshot) => {
+      const dados = snapshot.val();
+      if (dados) {
+        const todosProdutos = Object.entries(dados).map(([categoria, produtos]) => 
+          produtos.map(prod => ({...prod, categoria}))
+      ).flat();
+        setProdutos(todosProdutos);
+      } else {
+        setProdutos(produtosIniciais);
+        salvarProdNoFB(produtosIniciais);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
+  const salvarProdNoFB = (produtosAtualizados) => {
+    const ProdPorCategotia = {};
+    produtosAtualizados.forEach((prod) => {
+      if (!ProdPorCategotia[prod.categoria]) {
+        ProdPorCategotia[prod.categoria] = [];
+      }
+      ProdPorCategotia[prod.categoria].push(prod);
+    });
+    set(ref(db, "cardapio/produtos"), ProdPorCategotia);
+  };
+  //ate
+  //mudei essa funcao tb
   const handleSalvarProduto = (produtoSalvo) => {
+    let novosProdutos;
     if (produtoParaEditar) {
-      setProdutos(produtosAnteriores =>
-        produtosAnteriores.map(p =>
-          p.id === produtoParaEditar.id ? { ...produtoSalvo, id: p.id } : p
-        )
+      novosProdutos = produtos.map((prod) =>
+        prod.id === produtoParaEditar.id
+          ? { ...produtoSalvo, id: prod.id }
+          : prod
       );
     } else {
       const novoProduto = { ...produtoSalvo, id: new Date().getTime() };
-      setProdutos(produtosAnteriores => [...produtosAnteriores, novoProduto]);
+      novosProdutos = [...produtos, novoProduto];
     }
+    setProdutos(novosProdutos);
+    salvarProdNoFB(novosProdutos);
     handleFecharModal();
   };
-
-  // ✅ Função de remover produto
+  //mudei essa tb
   const handleRemoverProduto = (produtoRemover) => {
-    setProdutos(produtosAtuais =>
-      produtosAtuais.filter(p => p.id !== produtoRemover.id)
+    const novosProdutos = produtos.filter(
+      (prod) => prod.id !== produtoRemover.id
     );
+    setProdutos(novosProdutos);
+    salvarProdNoFB(novosProdutos);
   };
 
   return (
