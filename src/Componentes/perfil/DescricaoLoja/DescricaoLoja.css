@@ -1,5 +1,6 @@
 .descricao-loja {
   text-align: center;
+  margin-top: -12px;
   padding: 0 16px;
   color: #4c456f;
   font-size: 14px;
@@ -7,6 +8,7 @@
 
 .descricao-loja p {
   margin: 0;
+  margin-bottom: 16px;
 }
 .descricao-textarea {
   width: 100%;
