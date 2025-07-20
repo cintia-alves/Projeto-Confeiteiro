@@ -3,7 +3,7 @@ import React from "react";
 import './Home.css'
 
 import { useNavigate } from "react-router-dom";
-// import AppRoutes from '../../Routes.jsx';
+
 
 
 
@@ -29,7 +29,7 @@ function Home () {
         <div id="div_body_left" className='testediv'>
         <h1> GeraCatálogos: Sua <br /> doceria na internet, do <br /> jeitinho que você<br /> precisa!</h1>
         <p> Você ama preparar doces, bolos e delícias caseiras, mas sente<br /> dificuldade na hora de usar a internet para montar seu cardápio<br /> online? A gente entende, e criou a solução perfeita para você.</p>
-        <button id="botao_entrar_body_left"> Fazer cadastro ou Entrar</button>
+        <button id="botao_entrar_body_left"> Fazer cadastro / entrar</button>
 
         </div>
         <div id="div_body_right" className='testediv'>
