@@ -3,20 +3,19 @@ import React from "react";
 import './Home.css'
 
 import { useNavigate } from "react-router-dom";
-import AppRoutes from './Routes.jsx';
+// import AppRoutes from '../../Routes.jsx';
 
 
 
 function Home () {
   const navegar = useNavigate();
   function handleEntrar() {
-    navegar("/cardapio");
+    navegar("/app");
   } 
 
 
   return (
     <div id="div_all">
-      <AppRoutes/> 
       <div id="div_header"> 
         <div id="div_header_logo" className='header'>
           <h3 id="div_logo"> Logo </h3> 
