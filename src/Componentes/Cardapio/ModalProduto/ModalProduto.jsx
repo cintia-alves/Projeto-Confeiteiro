@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './ModalProduto.css';
 import axios from 'axios';
 
-const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];
+const categorias = ["Doces Tradicionais", "Especiais da casa", "Doces recheados", "Gelados e cremosos"];
 
 export default function ModalProduto({ onClose, onSave, produtoInicial = null }) {
   const [nome, setNome] = useState('');

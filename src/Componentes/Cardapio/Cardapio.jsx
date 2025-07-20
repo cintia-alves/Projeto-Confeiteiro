@@ -11,28 +11,28 @@ const produtosIniciais = [
     nome: "Nome do produto ",
     descricao: "Adicione aqui uma descrição do seu produto.",
     preco: "R$ 00,00",
-    categoria: "Bolos",
+    categoria: "Doces Tradicionais",
   },
   {
     id: 2,
     nome: "Nome do produto ",
     descricao: "Adicione aqui uma descrição do seu produto.",
     preco: "R$ 00,00",
-    categoria: "Pote da Felicidade",
+    categoria: "Especiais da casa",
   },
   {
     id: 3,
     nome: "Nome do produto ",
     descricao: "Adicione aqui uma descrição do seu produto.",
     preco: "R$ 00,00",
-    categoria: "Brigadeiros",
+    categoria: "Doces recheados",
   },
   {
     id: 4,
     nome: "Nome do produto ",
     descricao: "Adicione aqui uma descrição do seu produto.",
     preco: "R$ 00,00",
-    categoria: "Páscoa",
+    categoria: "Gelados e cremosos",
   },
 ];
 
