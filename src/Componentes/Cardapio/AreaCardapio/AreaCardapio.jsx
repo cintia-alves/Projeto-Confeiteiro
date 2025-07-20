@@ -1,6 +1,6 @@
 import './AreaCardapio.css';
 import AreaDeCards from '../AreaDeCards/AreaDeCards';
-import ModalConfirmacao from '../ModalConfirmacao/ModalConfirmacao'; // Você precisa criar este componente
+import ModalConfirmacao from '../ModalConfirmacao/ModalConfirmacao'; 
 import { useState } from 'react';
 
 const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];

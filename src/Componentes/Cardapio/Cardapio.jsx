@@ -89,7 +89,7 @@ export default function Cardapio() {
     handleFecharModal();
   };
 
-  // ✅ Função de remover produto
+  
   const handleRemoverProduto = (produtoRemover) => {
     setProdutos(produtosAtuais =>
       produtosAtuais.filter(p => p.id !== produtoRemover.id)

@@ -21,7 +21,7 @@ export default function CardProduto({ produto, onEditar, onRemover }) {
           backgroundColor: '#e0e0e0'
         }}
       >
-        {/* Ícones de editar e remover no mesmo nível */}
+        {}
         <div className="icone-editar" onClick={() => onEditar(produto)} title="Editar">
           <FaPen />
         </div>
