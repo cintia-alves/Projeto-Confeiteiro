@@ -5,9 +5,9 @@ import Cardapio from './Componentes/Cardapio/Cardapio';
 import BotaoEditar from './Componentes/BotaoEditar/BotaoEditar';
 import BotaoSair from './Componentes/BotaoSair/BotaoSair';
 
-
 function App() {
   const [isEditando, setIsEditando] = useState(false);
+
   return (
   <>
    <div className="tela">
