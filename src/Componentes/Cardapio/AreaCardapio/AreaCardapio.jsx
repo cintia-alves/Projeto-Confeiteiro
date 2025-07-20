@@ -2,7 +2,7 @@ import './AreaCardapio.css';
 import AreaDeCards from '../AreaDeCards/AreaDeCards';
 import { useState } from 'react';
 
-const categorias = ["Bolos", "Pote da Felicidade", "Brigadeiros", "Páscoa"];
+const categorias = ["Doces Tradicionais", "Especiais da casa", "Doces recheados", "Gelados e cremosos"];
 
 export default function AreaCardapio({ produtos, onEditar, onRemover }) {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(categorias[0]);
