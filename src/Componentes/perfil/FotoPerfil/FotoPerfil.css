@@ -41,8 +41,8 @@
 .botoes-foto {
   position: absolute;
   top: 0;
-  right: -50px;           /* ajusta horizontalmente */
-  transform: translateY(-8px); /* sobe os botões para ficarem no topo da imagem */
+  right: -50px;           
+  transform: translateY(-8px); 
   display: flex;
   flex-direction: column;
   gap: 8px;

@@ -1,4 +1,3 @@
-import { FaEdit } from 'react-icons/fa';
 import './CapaImagem.css';
 import { useState, useRef } from 'react';
 import axios from 'axios';

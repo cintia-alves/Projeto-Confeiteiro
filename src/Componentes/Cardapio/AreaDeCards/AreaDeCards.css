@@ -4,4 +4,9 @@
   gap: 16px; 
   justify-content: flex-start; 
   padding-inline: 24px;
+  
+}
+.area-cards p {
+  color: grey;
+  text-align: center;
 }

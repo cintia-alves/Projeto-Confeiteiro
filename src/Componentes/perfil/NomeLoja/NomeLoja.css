@@ -8,13 +8,13 @@
   font-weight: 700;
   letter-spacing: 0.10px;
   color: #4c456f;
-  text-align: center; /* centraliza o texto */
+  text-align: center; 
 }
 
 .input-nome {
   font-size: 20px;
   font-weight: 700;
-  color: #2b2b2b;
+  color: #4c456f;
   text-align: center;
   border: none;
   background-color: transparent;

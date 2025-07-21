@@ -5,36 +5,7 @@ import { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { ref, set, onValue } from "firebase/database";
 
-const produtosIniciais = [
-  {
-    id: 1,
-    nome: "Nome do produto ",
-    descricao: "Adicione aqui uma descrição do seu produto.",
-    preco: "R$ 00,00",
-    categoria: "Doces Tradicionais",
-  },
-  {
-    id: 2,
-    nome: "Nome do produto ",
-    descricao: "Adicione aqui uma descrição do seu produto.",
-    preco: "R$ 00,00",
-    categoria: "Especiais da casa",
-  },
-  {
-    id: 3,
-    nome: "Nome do produto ",
-    descricao: "Adicione aqui uma descrição do seu produto.",
-    preco: "R$ 00,00",
-    categoria: "Doces recheados",
-  },
-  {
-    id: 4,
-    nome: "Nome do produto ",
-    descricao: "Adicione aqui uma descrição do seu produto.",
-    preco: "R$ 00,00",
-    categoria: "Gelados e cremosos",
-  },
-];
+const produtosIniciais = [];// deixei ele vazio pra começar sem nada
 
 export default function Cardapio() {
   const [produtos, setProdutos] = useState(produtosIniciais);

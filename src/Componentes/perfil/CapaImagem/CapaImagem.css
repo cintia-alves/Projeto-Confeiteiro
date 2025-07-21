@@ -10,7 +10,7 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
-  background-color: #aaa; /* fundo cinza padrão */
+  background-color: #aaa; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none; /* 👈 Isso permite que o clique "passe por cima" da imagem */
+  pointer-events: none; 
 }
 
 .capa-fundo.com-imagem {
