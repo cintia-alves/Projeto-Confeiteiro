@@ -14,7 +14,7 @@ export default function AreaDeCards({ produtos, onEditar, onRemover }) {
           />
         ))
       ) : (
-        <p>Você não possui produtos cadastrados nessa categoria, para cadastrar aperte no botão abaixo.</p>
+        <p className='p'>Você não possui produtos cadastrados nessa categoria, para cadastrar aperte no botão abaixo.</p>
       )}
     </div>
   );
